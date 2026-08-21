@@ -1,10 +1,6 @@
 # Agentic Clinical Trial Manager
 
-F52 in the Agentic AI Library.
-
-A multi-agent clinical trial operations support system with separate agents, tools, skills, orchestration, memory, state, schemas, prompts, configuration, safety, observability, evaluation, benchmarks, examples, tests, and CI.
-
-This system supports trial operations and documentation. It does not replace investigators, IRBs, sponsors, regulators, clinical judgment, or required oversight.
+F52 standalone multi-agent clinical trial operations support system.
 
 ## Agents
 
@@ -15,6 +11,22 @@ This system supports trial operations and documentation. It does not replace inv
 - [`deviation_reviewer_agent.py`](AGENTS/deviation_reviewer_agent.py)
 - [`reporting_agent.py`](AGENTS/reporting_agent.py)
 
-## Architecture
+## Tools
 
-See [`AGENTS/`](AGENTS/), [`TOOLS/`](TOOLS/), [`SKILLS/`](SKILLS/), [`orchestration/`](orchestration/), [`memory/`](memory/), [`state/`](state/), [`schemas/`](schemas/), [`prompts/`](prompts/), [`config/`](config/), [`safety/`](safety/), [`observability/`](observability/), [`evals/`](evals/), [`benchmarks/`](benchmarks/), [`examples/`](examples/), [`tests/`](tests/), and [`docs/`](docs/).
+- [`protocol_checker.py`](TOOLS/protocol_checker.py)
+- [`site_status_tool.py`](TOOLS/site_status_tool.py)
+- [`recruitment_metrics.py`](TOOLS/recruitment_metrics.py)
+- [`data_quality_checker.py`](TOOLS/data_quality_checker.py)
+- [`deviation_log.py`](TOOLS/deviation_log.py)
+
+## Skills
+
+- [`protocol_planning.py`](SKILLS/protocol_planning.py)
+- [`site_coordination.py`](SKILLS/site_coordination.py)
+- [`recruitment_tracking.py`](SKILLS/recruitment_tracking.py)
+- [`data_review.py`](SKILLS/data_review.py)
+- [`deviation_review.py`](SKILLS/deviation_review.py)
+
+Supporting layers include orchestration, memory, state, schemas, prompts, config, safety, observability, evals, benchmarks, examples, tests, docs, and CI.
+
+This system supports operations and documentation. It does not replace investigators, IRBs, sponsors, regulators, or required clinical oversight.
