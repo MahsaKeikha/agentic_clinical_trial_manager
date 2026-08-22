@@ -1,6 +1,23 @@
+[build-system]
+requires=["setuptools>=68"]
+build-backend="setuptools.build_meta"
+
 [project]
 name="agentic-clinical-trial-manager"
-version="0.1.0"
+version="1.0.0"
 requires-python=">=3.10"
+license={text="MIT"}
+authors=[{name="Mahsa Keikha"}]
+
+[project.optional-dependencies]
+dev=["pytest>=8","ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+include=["AGENTS*","TOOLS*","SKILLS*","orchestration*","memory*","state*","schemas*","prompts*","config*","safety*","observability*","evals*"]
+
 [tool.pytest.ini_options]
+pythonpath=["."]
 testpaths=["tests"]
+
+[tool.ruff.lint]
+select=["E4","E7","E9","F"]
