@@ -1,32 +1,31 @@
 # Agentic Clinical Trial Manager
 
-F52 standalone multi-agent clinical trial operations support system.
+**System:** F52  
+**Version:** 1.0.0  
+**Maturity:** L3 Gold Standard candidate
 
-## Agents
+A six-agent reference architecture for clinical trial operations support. The system coordinates protocol planning, site coordination, recruitment tracking, data quality, protocol-deviation review, and reporting while keeping consequential trial decisions under qualified human authority.
 
-- [`protocol_planner_agent.py`](AGENTS/protocol_planner_agent.py)
-- [`site_coordinator_agent.py`](AGENTS/site_coordinator_agent.py)
-- [`recruitment_tracker_agent.py`](AGENTS/recruitment_tracker_agent.py)
-- [`data_quality_agent.py`](AGENTS/data_quality_agent.py)
-- [`deviation_reviewer_agent.py`](AGENTS/deviation_reviewer_agent.py)
-- [`reporting_agent.py`](AGENTS/reporting_agent.py)
+## Fail-closed governance
 
-## Tools
+Trial operations cannot be approved when protocol versioning, IRB/ethics approval, informed consent, eligibility verification, privacy review, source-data traceability, audit trails, adverse-event review, serious-adverse-event escalation, deviation review, site training, investigational-product accountability, data quality, monitoring findings, safety-committee review, conflicts, unresolved questions, or material open risks are incomplete.
 
-- [`protocol_checker.py`](TOOLS/protocol_checker.py)
-- [`site_status_tool.py`](TOOLS/site_status_tool.py)
-- [`recruitment_metrics.py`](TOOLS/recruitment_metrics.py)
-- [`data_quality_checker.py`](TOOLS/data_quality_checker.py)
-- [`deviation_log.py`](TOOLS/deviation_log.py)
+Human approval is required after automated gates pass and cannot override an active blocker.
 
-## Skills
+## Reproduce
 
-- [`protocol_planning.py`](SKILLS/protocol_planning.py)
-- [`site_coordination.py`](SKILLS/site_coordination.py)
-- [`recruitment_tracking.py`](SKILLS/recruitment_tracking.py)
-- [`data_review.py`](SKILLS/data_review.py)
-- [`deviation_review.py`](SKILLS/deviation_review.py)
+```bash
+python -m pip install -e '.[dev]'
+ruff check .
+pytest -q
+python -m benchmarks.heldout_suite
+python -m examples.minimal
+python -m examples.complete
+python run.py
+```
 
-Supporting layers include orchestration, memory, state, schemas, prompts, config, safety, observability, evals, benchmarks, examples, tests, docs, and CI.
+CI validates Python 3.10, 3.11, and 3.12 and publishes the held-out result artifact from Python 3.12.
 
-This system supports operations and documentation. It does not replace investigators, IRBs, sponsors, regulators, or required clinical oversight.
+## Scope boundary
+
+This repository is an engineering reference for research-operations decision support. It does not replace investigators, sponsors, IRBs/ethics committees, DSMBs, monitors, regulators, site staff, or applicable GCP and regulatory obligations. L3 is an engineering maturity designation, not clinical validation or regulatory authorization.
